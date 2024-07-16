@@ -123,16 +123,18 @@ SSH или Secure Shell - это протокол безопасного дос�
    
    > правим /etc/ssh/sshd_config
 
-	  nano /etc/ssh/sshd_config
+   nano /etc/ssh/sshd_config
          Include /etc/ssh/sshd_config.d/*.conf
          Port 22
-		     PermitRootLogin yes
-		     ChallengeResponseAuthentication no
-		     UsePAM yes
-		     PrintMotd no
-		     AcceptEnv LANG LC_*
-		     Subsystem	sftp	internal-sftp
-         Match group usa-sftp
+	 PubkeyAuthentication yes
+	 PermitRootLogin yes
+	 ChallengeResponseAuthentication no
+	 UsePAM yes
+	 PrintMotd no
+	 AcceptEnv LANG LC_*
+	 Subsystem	sftp	internal-sftp
+         
+	 Match group usa-sftp
          X11Forwarding no
          ChrootDirectory /
          #ForceCommand internal-sftp
