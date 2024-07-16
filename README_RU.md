@@ -3,7 +3,7 @@
 -------------------------------------------------------------------
 ## Оглавление
 0. UFW
-1. SSH
+1. SSH (SFTP)
 2. FTP
 
 3. Apache
@@ -107,7 +107,7 @@ UFW (Uncomplicated Firewall или «простой брандмауэр») пр
 
 
 ## ################################################################
-1. SSH
+1. SSH (SFTP)
 SSH или Secure Shell - это протокол безопасного доступа из одного 
 компьютера к другому по сети. 
 
@@ -134,8 +134,8 @@ SSH или Secure Shell - это протокол безопасного дос�
 		     Subsystem	sftp	internal-sftp
          Match group usa-sftp
          X11Forwarding no
-         ChrootDirectory /home/hostinger/www/
-         ForceCommand internal-sftp
+         ChrootDirectory /
+         #ForceCommand internal-sftp
    ----------------------------------------     
 
   > sudo sshd -t
