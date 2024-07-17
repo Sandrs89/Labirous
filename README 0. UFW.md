@@ -22,7 +22,7 @@ UFW (Uncomplicated Firewall или «простой брандмауэр») пр
    > sudo ufw delete allow 20/tcp
    > sudo ufw delete deny 20/tcp
 
-   > Открываем рабочие порты  
+  ## Открываем рабочие порты  
    > sudo ufw allow 20/tcp
    > sudo ufw allow 21/tcp
    > sudo ufw allow 40000:65000/tcp
