@@ -16,11 +16,11 @@ UFW (Uncomplicated Firewall или «простой брандмауэр») пр
     > netstat -lnpvut (посмотрим на текущие соединения)
     
  ## Прочие команды: 
-   > sudo ufw allow 20/tcp
-   > sudo ufw deny 20/tcp
+   >> sudo ufw allow 20/tcp
+   >> sudo ufw deny 20/tcp
    
-   > sudo ufw delete allow 20/tcp
-   > sudo ufw delete deny 20/tcp
+   >> sudo ufw delete allow 20/tcp
+   >> sudo ufw delete deny 20/tcp
 
   ## Открываем рабочие порты  
    > sudo ufw allow 20/tcp
