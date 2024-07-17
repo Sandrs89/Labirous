@@ -91,6 +91,11 @@ File Transfer Protocol, т. е. FTP – протокол передачи фай
       # Выводимое сообщение
       AccessGrantMsg  "Hello to Bolgarian Server"
 
+      # MLST & MLSB 
+      <IfModule mod_facts.c>
+        FactsAdvertise off
+      </IfModule>
+
       # Максимальное кол-во процессов
       MaxInstances    8
 
