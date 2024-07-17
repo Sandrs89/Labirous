@@ -272,8 +272,16 @@ File Transfer Protocol, т. е. FTP – протокол передачи фай
         LoadModule mod_ifsession.c
         
 --------------------------------------------
-  
-     
+ 
+   # правим /etc/proftpd/tls.conf 
+      sudo nano /etc/proftpd/tls.conf     
+
+
+
+
+
+
+
 
 
       > sudo systemctl start proftpd
