@@ -228,9 +228,50 @@ File Transfer Protocol, т. е. FTP – протокол передачи фай
 
 --------------------------------------------
  
+   # правим /etc/proftpd/modules.conf 
+      sudo nano /etc/proftpd/modules.conf
 
+        #
+        # This file is used to manage DSO modules and features.
+        #
 
+        ModulePath /usr/lib/proftpd
+        
+        ModuleControlsACLs insmod,rmmod allow user root
+        ModuleControlsACLs lsmod allow user *
+        
+        LoadModule mod_ctrls_admin.c
+        
+        LoadModule mod_tls.c
+        LoadModule mod_radius.c
+        LoadModule mod_quotatab.c
 
+        LoadModule mod_quotatab_file.c
+        LoadModule mod_quotatab_radius.c
+        
+        LoadModule mod_rewrite.c
+        LoadModule mod_load.c
+        LoadModule mod_ban.c
+        LoadModule mod_wrap2.c
+        LoadModule mod_wrap2_file.c
+        
+        LoadModule mod_dynmasq.c
+        LoadModule mod_exec.c
+        LoadModule mod_shaper.c
+        LoadModule mod_ratio.c
+        LoadModule mod_site_misc.c
+        
+        LoadModule mod_facl.c
+        LoadModule mod_unique_id.c
+        LoadModule mod_copy.c
+        LoadModule mod_deflate.c
+        LoadModule mod_ifversion.c
+        LoadModule mod_memcache.c
+        
+        LoadModule mod_readme.c
+        LoadModule mod_ifsession.c
+        
+--------------------------------------------
   
      
 
