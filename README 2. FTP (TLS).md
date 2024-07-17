@@ -36,7 +36,7 @@ File Transfer Protocol, т. е. FTP – протокол передачи фай
     > sudo chown usa-ftp:usa /home/hostinger/www/
 
     --------------------------------------------
-   # > правим /etc/proftpd/proftpd.conf 
+   ## > правим /etc/proftpd/proftpd.conf 
       sudo nano /etc/proftpd/proftpd.conf 
 
       # /etc/proftpd/proftpd.conf -- This is a basic ProFTPD configuration file.
