@@ -97,8 +97,10 @@ File Transfer Protocol, т. е. FTP – протокол передачи фай
       # Общее максимальное число соединений
       MaxClients 3
 
-      # максимальное количество подключений
+      # максимальное количество подключений для одного и того же пользователя
       MaxCLientsPerUser 8
+      
+      # Количество подключений для одного и того же хоста пользователя 
       MaxHostsPerUser 8
 
       # Максимальное число соединений с одного хоста
@@ -298,34 +300,34 @@ File Transfer Protocol, т. е. FTP – протокол передачи фай
 
       <IfModule mod_tls.c>
       
-      # Включаем шифрование соединения
-      TLSEngine                       on
+        # Включаем шифрование соединения
+        TLSEngine                       on
       
-      # Логи шифрования
-      TLSLog                          /var/log/proftpd/tls.log
+        # Логи шифрования
+        TLSLog                          /var/log/proftpd/tls.log
       
-      # Протокол соединения
-      TLSProtocol                     SSLv23 TLSv1.2
+        # Протокол соединения
+        TLSProtocol                     SSLv23 TLSv1.2
       
-      # Путь к сертификатам
-      TLSRSACertificateFile                   /etc/ssl/certs/proftpd.crt
-      TLSRSACertificateKeyFile                /etc/ssl/private/proftpd.key
+        # Путь к сертификатам
+        TLSRSACertificateFile                   /etc/ssl/certs/proftpd.crt
+        TLSRSACertificateKeyFile                /etc/ssl/private/proftpd.key
 
-# 
-TLSOptions                      NoCertRequest EnableDiags NoSessionReuseRequired
+        # Время жизни рукопожатия 
+        TLSTimeoutHandshake             30
 
-# 
-TLSVerifyClient                         off
-TLSRequired                             on
+        # Опции:
+        TLSOptions                      NoCertRequest EnableDiags NoSessionReuseRequired
+      
+        # Проверьте клиентов, которые хотят использовать FTP через TLS. 
+        TLSVerifyClient                         on
+        TLSRequired                             on
 
-#TLSRenegotiate                          required off
+        # отключить повторную авторизацию TLS
+        TLSRenegotiate                         required off
+      </IfModule>
 
-</IfModule>
-
-
-
-
-
+--------------------------------------------      
 
       > proftpd -l
       > sudo systemctl start proftpd
