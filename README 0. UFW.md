@@ -1,10 +1,10 @@
 ## ################################################################
-0. UFW
+# 0. UFW
 UFW (Uncomplicated Firewall или «простой брандмауэр») представляет 
 собой интерфейс iptables, предназначенный для упрощения процесса 
 настройки брандмауэра.
 
-  0.1 Шаг:
+ ## 0.1 Шаг:
     > sudo apt-get install ufw
     > sudo ufw enable
     > sudo ufw status
@@ -15,7 +15,7 @@ UFW (Uncomplicated Firewall или «простой брандмауэр») пр
     > netstat
     > netstat -lnpvut (посмотрим на текущие соединения)
     
-  Прочие команды: 
+ ## Прочие команды: 
    > sudo ufw allow 20/tcp
    > sudo ufw deny 20/tcp
    
