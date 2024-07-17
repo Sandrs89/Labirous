@@ -9,7 +9,7 @@ UFW (Uncomplicated Firewall или «простой брандмауэр») пр
     > sudo ufw enable
     > sudo ufw status
     
-   Сеть:
+ ## Сеть:
     > sudo ss -tnlp
     > ss -lntp | sed -r 's/\t/ /g'
     > netstat
