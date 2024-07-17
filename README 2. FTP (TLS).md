@@ -113,7 +113,7 @@ File Transfer Protocol, т. е. FTP – протокол передачи фай
       Umask   023     023
 
       # Обратный поиск данных IP-адресов
-      UseReverseDns on
+      UseReverseDns off
 
       # Разрешить соединения на основе /etc/shells
       RequireValidShell       off
@@ -212,7 +212,7 @@ File Transfer Protocol, т. е. FTP – протокол передачи фай
 
        # Защита от временной аттаки 
        <IfModule mod_delay.c>
-          DelayEngine on
+          DelayEngine off
        </IfModule>
 
        <IfModule mod_ctrls.c>
