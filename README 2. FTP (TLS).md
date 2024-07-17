@@ -114,6 +114,9 @@ File Transfer Protocol, т. е. FTP – протокол передачи фай
 
       # Обратный поиск данных IP-адресов
       UseReverseDns off
+      
+      # Время жизни сессии
+      TimeoutSession 86400
 
       # Разрешить соединения на основе /etc/shells
       RequireValidShell       off
