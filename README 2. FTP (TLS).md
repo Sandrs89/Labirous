@@ -128,6 +128,16 @@ File Transfer Protocol, т. е. FTP – протокол передачи фай
       # выдавать многострочные сообщения в стандарте 
       MultilineRFC2228 on
 
+      # Кодировка
+      <IfModule mod_lang.c>
+        LangEngine   on
+        LangDefault  en_US.utf8
+        UseEncoding  on
+        UseEncoding  UTF-8 CP1251
+        UseEncoding  UTF-8 CP936
+        LangPath /usr/share/locale
+      </IfModule>
+
       # Сообщение после успешного захода на сервер
       AccessGrantMsg "Welcome to Bolgarian Server"
 
@@ -276,7 +286,7 @@ File Transfer Protocol, т. е. FTP – протокол передачи фай
    # правим /etc/proftpd/tls.conf 
 
     # генерация ключа
-    > sudo openssl req -x509 -days 1461 -nodes -newkey rsa:2048 -keyout /etc/ssl/private/proftpd.key -out /etc/ssl/certs/proftpd.crt -subj "/C=RU/ST=SPb/L=SPb/O=Global Security/OU=IT Department/CN=ftp.dmosk.local/CN=ftp"
+    > sudo openssl req -x509 -days 1461 -nodes -newkey rsa:2048 -keyout /etc/ssl/private/proftpd.key -out /etc/ssl/certs/proftpd.crt -subj "/C=EN/ST=USA/L=USA/O=Global Security/OU=IT Department/CN=cody-ai.org/CN=ftp"
 
     > sudo chmod 0600 /etc/ssl/certs/proftpd.crt
     > sudo chmod 0640 /etc/ssl/private/proftpd.key
