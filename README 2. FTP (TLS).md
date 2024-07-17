@@ -88,6 +88,10 @@ File Transfer Protocol, т. е. FTP – протокол передачи фай
       TimeoutIdle 180
       TimeoutLogin 20
 
+      # максимальное ограничение одного файла, на закачку
+      MaxRetrieveFileSize 50 Mb
+      MaxStoreFileSize 50 Mb
+
       # Выводимое сообщение
       AccessGrantMsg  "Hello to Bolgarian Server"
 
