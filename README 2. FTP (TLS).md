@@ -275,8 +275,36 @@ File Transfer Protocol, т. е. FTP – протокол передачи фай
  
    # правим /etc/proftpd/tls.conf 
       sudo nano /etc/proftpd/tls.conf     
+                                     
+      #
+      # Proftpd sample configuration for FTPS connect
+      #
 
+      <IfModule mod_tls.c>
+      
+      # Включаем шифрование соединения
+      TLSEngine                       on
+      
+      # Логи шифрования
+      TLSLog                          /var/log/proftpd/tls.log
+      
+      # Протокол соединения
+      TLSProtocol                     SSLv23 TLSv1.2
+      
+      # Путь к сертификатам
+      TLSRSACertificateFile                   /etc/ssl/certs/proftpd.crt
+      TLSRSACertificateKeyFile                /etc/ssl/private/proftpd.key
 
+# 
+TLSOptions                      NoCertRequest EnableDiags NoSessionReuseRequired
+
+# 
+TLSVerifyClient                         off
+TLSRequired                             on
+
+#TLSRenegotiate                          required off
+
+</IfModule>
 
 
 
