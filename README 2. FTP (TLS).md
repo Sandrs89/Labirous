@@ -307,11 +307,11 @@ File Transfer Protocol, т. е. FTP – протокол передачи фай
         TLSLog                          /var/log/proftpd/tls.log
       
         # Протокол соединения
-        TLSProtocol                     SSLv23 TLSv1.2
+        TLSProtocol                     SSLv23 TLSv1.2 TLSv1.3
       
         # Путь к сертификатам
-        TLSRSACertificateFile                   /etc/ssl/certs/proftpd.crt
-        TLSRSACertificateKeyFile                /etc/ssl/private/proftpd.key
+        TLSRSACertificateFile           /etc/ssl/certs/proftpd.crt
+        TLSRSACertificateKeyFile        /etc/ssl/private/proftpd.key
 
         # Время жизни рукопожатия 
         TLSTimeoutHandshake             30
@@ -320,11 +320,11 @@ File Transfer Protocol, т. е. FTP – протокол передачи фай
         TLSOptions                      NoCertRequest EnableDiags NoSessionReuseRequired
       
         # Проверьте клиентов, которые хотят использовать FTP через TLS. 
-        TLSVerifyClient                         on
-        TLSRequired                             on
+        TLSVerifyClient                 off
+        TLSRequired                     on
 
         # отключить повторную авторизацию TLS
-        TLSRenegotiate                         required off
+        TLSRenegotiate                  required off
       </IfModule>
 
 --------------------------------------------      
