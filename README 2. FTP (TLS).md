@@ -276,8 +276,10 @@ File Transfer Protocol, т. е. FTP – протокол передачи фай
    # правим /etc/proftpd/tls.conf 
 
     # генерация ключа
-    openssl req -x509 -days 1461 -nodes -newkey rsa:2048 -keyout /etc/ssl/private/proftpd.key -out /etc/ssl/certs/proftpd.crt -subj "/C=RU/ST=SPb/L=SPb/O=Global Security/OU=IT Department/CN=ftp.dmosk.local/CN=ftp"
-   
+    > sudo openssl req -x509 -days 1461 -nodes -newkey rsa:2048 -keyout /etc/ssl/private/proftpd.key -out /etc/ssl/certs/proftpd.crt -subj "/C=RU/ST=SPb/L=SPb/O=Global Security/OU=IT Department/CN=ftp.dmosk.local/CN=ftp"
+
+    > sudo chmod 0600 /etc/ssl/private/proftpd.key
+    > sudo chmod 0640 /etc/ssl/private/proftpd.key
     > sudo nano /etc/proftpd/tls.conf     
                                      
       #
