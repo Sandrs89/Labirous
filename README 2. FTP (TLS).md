@@ -8,6 +8,8 @@ File Transfer Protocol, т. е. FTP – протокол передачи фай
     > sudo apt-get install proftpd
     > sudo systemctl enable proftpd
 
+--------------------------------------------
+
    # Создаем каталоги:
     > sudo mkdir /home/hostinger && sudo chmod 0777 /home/hostinger
     > sudo mkdir /home/hostinger/bin-tmp && sudo chmod 0777 /home/hostinger/bin-tmp
@@ -32,119 +34,204 @@ File Transfer Protocol, т. е. FTP – протокол передачи фай
     > sudo adduser usa-ftp
     > sudo usermod -G usa usa-ftp
     > sudo chown usa-ftp:usa /home/hostinger/www/
-    
-    > правим /etc/proftpd/proftpd.conf 
+
+    --------------------------------------------
+   # > правим /etc/proftpd/proftpd.conf 
       sudo nano /etc/proftpd/proftpd.conf 
 
       # /etc/proftpd/proftpd.conf -- This is a basic ProFTPD configuration file.
-      
+
       Include /etc/proftpd/modules.conf
 
-      User usa-ftp #hostinger
-      Group usa #www-data
+      # Указываем пользователя/группу от имени которых будет запущен ProFTPD
+      User usa-ftp
+      Group usa
 
-      DefaultRoot ~
+      # Запираем всех в домашнем каталоге
+      DefaultRoot /home
+
+      # запрещаем подключаться от пользователя root
+      RootLogin off
+
+      # Указываем IP-адрес & порт на каком будет работать ftp
+      DefaultAddress  91.215.152.114
       Port 21
 
+      # разрешить пассивную передачу данных на IP
+      MasqueradeAddress       91.215.152.114
+
+      # Не использовать протокол IPv6 
       UseIPv6 off
+
+      # Указываем диапазон портов
       PassivePorts 40000 65535
 
+      # имя сервера, которое высвечивается при подключении
       ServerName "Bolgarian"
+
+      # режим работы - автономный
       ServerType standalone
-      DeferWelcome off
+
+      # показывать приветственное сообщение
+      DeferWelcome on
+
+      # делаем сервером по умолчанию
       DefaultServer on
+
+      # Разрешить ходить по ссылка
       ShowSymlinks on
 
+      # Таймауты
       TimeoutNoTransfer 360
       TimeoutStalled 600
       TimeoutIdle 180
       TimeoutLogin 20
 
-      MaxInstances 8
-      MaxClients 8
+      # Выводимое сообщение
+      AccessGrantMsg  "Hello to Bolgarian Server"
 
+      # Максимальное кол-во процессов
+      MaxInstances    8
+
+      # Общее максимальное число соединений
+      MaxClients 3
+
+      # максимальное количество подключений
       MaxCLientsPerUser 8
       MaxHostsPerUser 8
-      MaxClientsPerHost 8 "%m current connect, new denied client"
-      MaxLoginAttempts 8 "current close sign"
 
-      Umask 022
-      AllowOverwrite off
+      # Максимальное число соединений с одного хоста
+      MaxClientsPerHost 8 "%m current connect, new denied client"
+
+      # Максимальное число попыток ввода пароля
+      MaxLoginAttempts 3 "current close sign"
+
+      # Маска для назначения прав при создание файлов
+      Umask   023     023
+
+      # Обратный поиск данных IP-адресов
+      UseReverseDns on
+
+      # Разрешить соединения на основе /etc/shells
+      RequireValidShell       off
+
+      # Запретить пересылку сервер-сервер
+      AllowForeignAddress off
+
+      # Директива отвечающая за .ftaccess файлы
+      AllowOverride off
+
+      # Директива позволяющая переписывать файлы
+      AllowOverwrite on
+
+      # выдавать многострочные сообщения в стандарте 
       MultilineRFC2228 on
 
+      # Сообщение после успешного захода на сервер
+      AccessGrantMsg "Welcome to Bolgarian Server"
+
+      # переключение поиска идентификаторов 
       <IfModule mod_ident.c>
-         IdentLookups off
+        IdentLookups off
       </IfModule>
 
+      # Показывать содержимое каталога
       ListOptions "-l"
 
-      DenyFilter \*.*/
+      # регулярное выражение аргументов команды, которые нужно заблокировать 
+      #DenyFilter \*.*/
+
+      # Паттерн для проверки комманд отправляемых от клиента-серверу
+      #AllowFilter ^[-A-Za-z0-9_.(),/]*$
+
+      # Разрешить только "az 0-9" . - _ в именах файлов с символами верхнего регистра
+      #PathAllowFilter ^[A-Za-z0-9._-]+$
+
+      # позволяем продолжать скачивания и закачки
       AllowStoreRestart on
+      AllowRetrieveRestart on
 
-      <Directory /home/hostinger/www/*>
-       Umask 023
-       AllowOverwrite on
-      </Directory>
+      # удаляем незавершенные закачки
+      DeleteAbortedStores on
 
-      AuthPAM off
+      # SECURITY VIOLATION: Passive connection
+      AllowForeignAddress on
+
+      # Маска изменяющая права доступа
+      <Directory /home/*>
+        Umask 023
+        AllowOverwrite on
+          <Limit MKD STOR DELE XMKD RNEF RNTO RMD XRMD CWD>
+            AllowAll
+          </Limit>
+
+          # Разрешение на смену прав файлам и создание каталогов
+         <Limit ALL SITE_CHMOD>
+           AllowAll
+         </Limit>
+
+         # разрешим READ / WRITE
+         <Limit READ WRITE>
+           AllowAll
+         </Limit>
+       </Directory>
+
+       # использовать PAM-аутентификацию
+       AuthPAM off
+
+       # маскировка адресов с динамическими IP-адресами
+       <IfModule mod_dynmasq.c>
+         DynMasqRefresh 28800
+       </IfModule>
+
+       # Логи
+       TransferLog     /var/log/proftpd/xferlog.log
+       ExtendedLog     /var/log/proftp/extended.log
+       SystemLog       /var/log/proftpd/proftpd.log
+
+       <IfModule mod_quotatab.c>
+         QuotaEngine off
+       </IfModule>
+
+       <IfModule mod_ratio.c>
+        Ratios off
+       </IfModule>
+
+       # Защита от временной аттаки 
+       <IfModule mod_delay.c>
+          DelayEngine on
+       </IfModule>
+
+       <IfModule mod_ctrls.c>
+          ControlsEngine off
+
+          ControlsMaxClients 3
+          ControlsLog /var/log/proftpd/controls.log
+
+          ControlsInterval 5
+          ControlsSocket /var/run/proftpd/proftpd.sock
+       </IfModule>
+
+       #
+       <IfModule mod_ctrls_admin.c>
+          AdminControlsEngine off
+       </IfModule>
+
+       # Это используется для соединений по протоколу FTPS
+       Include /etc/proftpd/tls.conf
+
+       # Разделение директив VirtualHost/Виртуальный хост
+       #Include /etc/proftpd/virtuals.conf
+
+       Include /etc/proftpd/conf.d/
+
+--------------------------------------------
+ 
 
 
-      <IfModule mod_dynmasq.c>
-      # DynMasqRefresh 28800
-      </IfModule>
 
-      # PersistentPasswd off
-      # AuthOrder mod_auth_pam.c* mod_auth_unix.c
-
-      UseReverseDNS off
-      #IdentLookups off
-
-      # UseSendFile off
-      
-      TransferLog /var/log/proftpd/xferlog
-      SystemLog /var/log/proftpd/proftpd.log
-
-      #UseLastlog on
-      
-      <IfModule mod_quotatab.c>
-      QuotaEngine off
-      </IfModule>
-
-      <IfModule mod_ratio.c>
-      Ratios off
-      </IfModule>
-      
-      <IfModule mod_delay.c>
-      DelayEngine on
-      </IfModule>
-
-      <IfModule mod_ctrls.c>
-      ControlsEngine off
-      
-      ControlsMaxClients 5
-      
-      ControlsLog /var/log/proftpd/controls.log
-
-      ControlsInterval 5
-      ControlsSocket /var/run/proftpd/proftpd.sock
-      </IfModule>
-      
-      <IfModule mod_ctrls_admin.c>
-      AdminControlsEngine off
-      </IfModule>
-
-      #Include /etc/proftpd/ldap.conf
-      #Include /etc/proftpd/sql.conf
-      #
-      #Include /etc/proftpd/tls.conf
-      #Include /etc/proftpd/sftp.conf
-      #
-      #Include /etc/proftpd/dnsbl.conf
-      #Include /etc/proftpd/geoip.conf
-      #Include /etc/proftpd/snmp.conf
-      #
-      #Include /etc/proftpd/virtuals.conf
-      Include /etc/proftpd/conf.d/
+  
+     
 
 
       > sudo systemctl start proftpd
