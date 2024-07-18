@@ -302,8 +302,7 @@ File Transfer Protocol, т. е. FTP – протокол передачи фай
     # генерация ключа
     > sudo openssl req -x509 -days 1461 -nodes -newkey rsa:2048 -keyout /etc/ssl/private/proftpd.key -out /etc/ssl/certs/proftpd.crt -subj "/C=EN/ST=USA/L=USA/O=Global Security/OU=IT Department/CN=cody-ai.org/CN=ftp"
 
-    > sudo chmod 0600 /etc/ssl/certs/proftpd.crt
-    > sudo chmod 0640 /etc/ssl/private/proftpd.key
+    > sudo chmod 0600 /etc/ssl/certs/proftpd.crt && sudo chmod 0640 /etc/ssl/private/proftpd.key
     > sudo nano /etc/proftpd/tls.conf     
                                      
       #
