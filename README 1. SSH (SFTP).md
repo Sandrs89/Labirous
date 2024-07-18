@@ -15,7 +15,7 @@ SSH или Secure Shell - это протокол безопасного дос�
       > usermod -aG sudo blg-sftp
    
       > правим /etc/ssh/sshd_config
-        nano /etc/ssh/sshd_config
+        sudo nano /etc/ssh/sshd_config
 	
         	Include /etc/ssh/sshd_config.d/*.conf
 	
@@ -89,7 +89,7 @@ SSH или Secure Shell - это протокол безопасного дос�
    ----------------------------------------     
 
    	> правим /etc/ssh/ssh_config
-     	  nano /etc/ssh/ssh_config
+     	  sudo nano /etc/ssh/ssh_config
 	
  	  Include /etc/ssh/ssh_config.d/*.conf
 	  Host *
@@ -103,7 +103,7 @@ SSH или Secure Shell - это протокол безопасного дос�
    ----------------------------------------
 
    	> правим /etc/motd
-     	  nano /etc/motd
+     	  sudo nano /etc/motd
 		===========================
 		-- Welcome to USA Server --
 		===========================
