@@ -6,7 +6,9 @@ remote computers over a network.
 
  # 2.1 Step:
    > sudo adduser hostinger
+
    > sudo apt-get install proftpd
+
    > sudo systemctl enable proftpd
 
 --------------------------------------------
