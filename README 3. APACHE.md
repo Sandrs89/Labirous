@@ -4,9 +4,12 @@
 Apache - this is a service running in the background. One of the web servers. 
 
    3.1 Step:
-	 > sudo apt install apache2	
+	 > sudo apt install apache2
+  
 	 > sudo systemctl enable apache2
+  
 	 > sudo systemctl start apache2
+  
 	 
 	 > edit /etc/apache2/apache2.conf
 	   nano /etc/apache2/apache2.conf
