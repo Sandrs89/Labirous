@@ -41,7 +41,7 @@ is install php 8.0 to next:
 	> a2enmod mpm_prefork
 
 ------------------------------------------
-	> edit /etc/php/7.4 (в каталоге php.ini)
+	> edit /etc/php/7.4 (in catalog php.ini)
 	nano /etc/php/7.4/*   
 
 ------------------------------------------
