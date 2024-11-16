@@ -38,18 +38,26 @@ Apache - this is a service running in the background. One of the web servers.
   
 	 > ls /etc/apache2/mods-enabled
   
-	 
+
+
    > a2enmod rewrite
+   
 	 > a2enmod http2
+   
 	 > a2enmod headers
+   
 	 > a2enmod expires
-	 
-	 Отключение модуля Apache: 
+
+	 Отключение модуля Apache:
+
 	 > a2dismod 
 	 
 	 
 	 > a2ensite test.com (Только по необходимости "Подключаем виртуальный хост")
+  
 	 > sudo systemctl restart apache2
 
-   Если есть firewall UFW:
+
+   firewall UFW:
+   
      > sudo ufw allow 80/tcp
