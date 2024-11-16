@@ -1,39 +1,82 @@
 ## ################################################################
 # 2. FTP
-File Transfer Protocol, т. е. FTP – протокол передачи файлов и, как 
-понятно из полного названия, предназначен для передачи файлов между 
-удалёнными компьютерами через сеть. 
+File Transfer Protocol, FTP – The file transfer protocol and, as
+the full name implies, is designed to transfer files between
+remote computers over a network.
 
- # 2.1 Шаг:
-    > sudo apt-get install proftpd
-    > sudo systemctl enable proftpd
+ # 2.1 Step:
+   > sudo adduser hostinger
+   > sudo apt-get install proftpd
+   > sudo systemctl enable proftpd
 
 --------------------------------------------
 
-   # Создаем каталоги:
-    > sudo mkdir /home/hostinger && sudo chmod 0777 /home/hostinger
-    > sudo mkdir /home/hostinger/bin-tmp && sudo chmod 0777 /home/hostinger/bin-tmp
-    
-    > sudo mkdir /home/hostinger/ftp && sudo chmod 0777 /home/hostinger/ftp
-    > sudo mkdir /home/hostinger/www && sudo chmod 0777 /home/hostinger/www
-    
-    > sudo mkdir /home/hostinger/log && sudo chmod 0777 /home/hostinger/log
-    > sudo mkdir /home/hostinger/log/domain && sudo chmod 0777 /home/hostinger/log/domain
-    
-    > sudo mkdir /home/hostinger/log/php && sudo chmod 0777 /home/hostinger/log/php
-    > sudo mkdir /home/hostinger/log/php/sessions && sudo chmod 0777 /home/hostinger/log/php/sessions
-    
-    > sudo mkdir /home/hostinger/log/cron_log && sudo chmod 0777 /home/hostinger/log/cron_log
+   # Create dir:
+     > sudo mkdir /home/hostinger 
+     && sudo chmod 0777 /home/hostinger
+     
+     > sudo mkdir /home/hostinger/bin-tmp 
+     && sudo chmod 0777 /home/hostinger/bin-tmp
+     
+     > sudo mkdir /home/hostinger/bin-tmp/.well-known
+     && sudo chmod 0777 /home/hostinger/bin-tmp/.well-known
+     
+     > sudo mkdir /home/hostinger/bin-tmp/.well-known/acme-challenge
+     && sudo chmod 0777 /home/hostinger/bin-tmp/.well-known/acme-challenge   
+     
+     > sudo mkdir /home/hostinger/www
+     && sudo chmod 0777 /home/hostinger/www    
+     
+     > sudo mkdir /srv
+     && sudo chmod 0777 /srv
+     
+     > sudo mkdir /srv/command
+     && sudo chmod 0777 /srv/command  
+     
+     > sudo mkdir /srv/cron
+     && sudo chmod 0777 /srv/cron 
+     
+     > sudo mkdir /srv/notify
+     && sudo chmod 0777 /srv/notify
+     
+     > sudo mkdir /srv/updateSSL
+     && sudo chmod 0777 /srv/updateSSL 
+     
+     > sudo mkdir /srv/ftp
+     && sudo chmod 0777 /srv/ftp          
+     
+     > sudo mkdir /srv/ftp/app
+     && sudo chmod 0777 /srv/ftp/app      
+     
+     > sudo mkdir /srv/ftp/setting
+     && sudo chmod 0777 /srv/ftp/setting 
+     
+     > sudo mkdir /srv/ftp/log
+     && sudo chmod 0777 /srv/ftp/log
+     
+     > sudo mkdir /srv/ftp/log/domain
+     && sudo chmod 0777 /srv/ftp/log/domain
+     
+     > sudo mkdir /srv/ftp/log/user-log
+     && sudo chmod 0777 /srv/ftp/log/user-log
+     
+     > sudo mkdir /srv/ftp/log/php
+     && sudo chmod 0777 /srv/ftp/log/php
+     
+     > sudo mkdir /srv/ftp/log/php/sessions
+     && sudo chmod 0777 /srv/ftp/log/php/sessions    
+     
+     > sudo mkdir /srv/ftp/log/php/status
+     && sudo chmod 0777 /srv/ftp/log/php/status  
 
-    > sudo mkdir /home/server && sudo chmod 0777 /home/server
-    > sudo mkdir /home/server/command && sudo chmod 0777 /home/server/command
-    > sudo mkdir /home/server/cron && sudo chmod 0777 /home/server/cron
-    > sudo mkdir /home/server/notify && sudo chmod 0777 /home/server/notify
-    > sudo mkdir /home/server/updateSSl && sudo chmod 0777 /home/server/updateSSL
-    
-    > sudo adduser usa-ftp
-    > sudo usermod -G usa usa-ftp
-    > sudo chown usa-ftp:usa /home/hostinger/www/
+   > usermod -aG sudo www-data   
+   > adduser root www-data
+   
+   > usermod -aG sudo ftp  
+   > adduser root ftp
+ 
+   > chown -R www-data:www-data /home/hostinger/www
+   > chmod -R 775 /home/hostinger/www   
 
 --------------------------------------------
     
