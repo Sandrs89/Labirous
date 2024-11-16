@@ -14,7 +14,7 @@ computer to another over a network.
       > sudo chown usa-sftp:usa /
       > usermod -aG sudo blg-sftp
    
-      > правим /etc/ssh/sshd_config
+      > edit /etc/ssh/sshd_config
         sudo nano /etc/ssh/sshd_config
 	
         	Include /etc/ssh/sshd_config.d/*.conf
