@@ -3,6 +3,7 @@
 3. Apache
 Apache - this is a service running in the background. One of the web servers. 
 
+---------------------------------------------------------------------------------
    3.1 Step:
 	 > sudo apt install apache2
   
@@ -27,7 +28,7 @@ Apache - this is a service running in the background. One of the web servers.
   
 	   nano /etc/apache2/sites-available/default-ssl.conf   
 
-
+---------------------------------------------------------------------------------
 	 > apachectl configtest
   
 	 > sudo apachectl -t
@@ -40,24 +41,26 @@ Apache - this is a service running in the background. One of the web servers.
   
 ---------------------------------------------------------------------------------
 
-   > a2enmod rewrite
+   	> a2enmod rewrite
    
 	 > a2enmod http2
    
 	 > a2enmod headers
    
 	 > a2enmod expires
+  
 
+---------------------------------------------------------------------------------
 	 Отключение модуля Apache:
 
 	 > a2dismod 
 	 
-	 
 	 > a2ensite test.com (Только по необходимости "Подключаем виртуальный хост")
   
 	 > sudo systemctl restart apache2
+  
 
-
+---------------------------------------------------------------------------------
    firewall UFW:
    
      > sudo ufw allow 80/tcp
