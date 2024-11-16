@@ -8,6 +8,11 @@ computer to another over a network.
       > sudo systemctl enable sshd
       > ssh username@ip -p port
    ---------------------------------------
+
+   	> adduser root sshd
+   	> usermod -aG sudo sshd
+
+   ---------------------------------------
    
       > edit /etc/ssh/sshd_config
         sudo nano /etc/ssh/sshd_config
