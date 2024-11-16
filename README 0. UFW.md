@@ -1,5 +1,5 @@
 ## ################################################################
-# 0. UFW
+# 0. UFW Firewall
 UFW (Uncomplicated Firewall or "simple firewall") is an iptables interface 
 designed to simplify the firewall configuration process.
 
