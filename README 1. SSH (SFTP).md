@@ -6,7 +6,7 @@ computer to another over a network.
  ## 1.1 Step:
       > sudo apt install openssh-server
       > sudo systemctl enable sshd
-      > ssh username@ip_адрес -p port
+      > ssh username@ip -p port
    ---------------------------------------
       > sudo groupadd usa
       > sudo adduser usa-sftp
