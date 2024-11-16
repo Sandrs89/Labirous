@@ -1,6 +1,6 @@
 ## ################################################################
 # 1. SSH (SFTP)
-SSH или Secure Shell - This is a protocol for secure access from one
+SSH or Secure Shell - This is a protocol for secure access from one
 computer to another over a network.
 
  ## 1.1 Step:
