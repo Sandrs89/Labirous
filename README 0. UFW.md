@@ -20,6 +20,9 @@ designed to simplify the firewall configuration process.
    
     > sudo ufw delete allow 20/tcp
     > sudo ufw delete deny 20/tcp
+    
+    > sudo ufw status numbered
+    > sudo ufw delete
 
   ## 0.3 Open port  
     > sudo ufw allow 20/tcp
@@ -29,8 +32,3 @@ designed to simplify the firewall configuration process.
     > sudo ufw allow 23/tcp 
     > sudo ufw allow 80/tcp 
     > sudo ufw allow 443/tcp
-
-
-
-
-
