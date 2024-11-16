@@ -12,21 +12,21 @@ Apache - this is a service running in the background. One of the web servers.
   
 	 > sudo systemctl start apache2
   
-	 ---------------------------------------------------------------------------------
+	 
 	 > edit /etc/apache2/apache2.conf
   
 	   nano /etc/apache2/apache2.conf
-    	 ---------------------------------------------------------------------------------
+    	
 	   
 	 > edit /etc/apache2/ports.conf
   
 	   nano /etc/apache2/ports.conf
-    	 ---------------------------------------------------------------------------------
+    	
 	   	 
 	 > /etc/apache2/sites-available/000-default.conf
   
 	   nano /etc/apache2/sites-available/000-default.conf
-    	 ---------------------------------------------------------------------------------
+    	
 	   
 	 > /etc/apache2/sites-available/default-ssl.conf
   
@@ -45,7 +45,7 @@ Apache - this is a service running in the background. One of the web servers.
   
 ---------------------------------------------------------------------------------
 
-   	> a2enmod rewrite
+   	 > a2enmod rewrite
    
 	 > a2enmod http2
    
@@ -55,7 +55,7 @@ Apache - this is a service running in the background. One of the web servers.
   
 
 ---------------------------------------------------------------------------------
-   Отключение модуля Apache:
+   Off module Apache:
 
 	 > a2dismod 
 	 
