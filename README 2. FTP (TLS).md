@@ -71,13 +71,16 @@ remote computers over a network.
      > sudo mkdir /srv/ftp/log/php/status
      && sudo chmod 0777 /srv/ftp/log/php/status  
 
-   > usermod -aG sudo www-data   
-   > adduser root www-data
-   
-   > usermod -aG sudo ftp  
-   > adduser root ftp
+   > usermod -aG sudo www-data
  
+   > adduser root www-data
+
+   > usermod -aG sudo ftp
+
+   > adduser root ftp
+
    > chown -R www-data:www-data /home/hostinger/www
+
    > chmod -R 775 /home/hostinger/www   
 
 --------------------------------------------
