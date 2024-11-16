@@ -38,7 +38,7 @@ Apache - this is a service running in the background. One of the web servers.
   
 	 > ls /etc/apache2/mods-enabled
   
-
+---------------------------------------------------------------------------------
 
    > a2enmod rewrite
    
