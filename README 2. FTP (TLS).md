@@ -92,55 +92,33 @@ remote computers over a network.
 
       Include /etc/proftpd/modules.conf
 
-      # Указываем пользователя/группу от имени которых будет запущен ProFTPD
       User usa-ftp
       Group usa
 
-      # Запираем всех в домашнем каталоге
       DefaultRoot /home
-
-      # запрещаем подключаться от пользователя root
       RootLogin off
 
-      # Указываем IP-адрес & порт на каком будет работать ftp
       DefaultAddress  91.215.152.114
       Port 21
 
-      # разрешить пассивную передачу данных на IP
       MasqueradeAddress       91.215.152.114
-
-      # Не использовать протокол IPv6 
       UseIPv6 off
-
-      # Указываем диапазон портов
       PassivePorts 40000 65535
 
-      # имя сервера, которое высвечивается при подключении
       ServerName "Bolgarian"
-
-      # режим работы - автономный
       ServerType standalone
 
-      # показывать приветственное сообщение
       DeferWelcome on
-
-      # делаем сервером по умолчанию
       DefaultServer on
-
-      # Разрешить ходить по ссылка
       ShowSymlinks on
 
-      # Таймауты
       TimeoutNoTransfer 360
       TimeoutStalled 600
       TimeoutIdle 180
       TimeoutLogin 20
 
-      # максимальное ограничение одного файла, на закачку
       MaxRetrieveFileSize 50 Mb
       MaxStoreFileSize 50 Mb
-
-      # Выводимое сообщение
       AccessGrantMsg  "Hello to Bolgarian Server"
 
       # MLST & MLSB 
@@ -148,49 +126,23 @@ remote computers over a network.
         FactsAdvertise off
       </IfModule>
 
-      # Максимальное кол-во процессов
       MaxInstances    8
-
-      # Общее максимальное число соединений
       MaxClients 3
-
-      # максимальное количество подключений для одного и того же пользователя
       MaxCLientsPerUser 8
-      
-      # Количество подключений для одного и того же хоста пользователя 
       MaxHostsPerUser 8
-
-      # Максимальное число соединений с одного хоста
       MaxClientsPerHost 8 "%m current connect, new denied client"
-
-      # Максимальное число попыток ввода пароля
       MaxLoginAttempts 3 "current close sign"
-
-      # Маска для назначения прав при создание файлов
       Umask   023     023
 
-      # Обратный поиск данных IP-адресов
       UseReverseDns off
-      
-      # Время жизни сессии
       TimeoutSession 86400
-
-      # Разрешить соединения на основе /etc/shells
       RequireValidShell       off
 
-      # Запретить пересылку сервер-сервер
       AllowForeignAddress off
-
-      # Директива отвечающая за .ftaccess файлы
       AllowOverride off
-
-      # Директива позволяющая переписывать файлы
-      AllowOverwrite on
-
-      # выдавать многострочные сообщения в стандарте 
+      AllowOverwrite on 
       MultilineRFC2228 on
 
-      # Кодировка
       <IfModule mod_lang.c>
         LangEngine   on
         LangDefault  en_US.utf8
@@ -200,37 +152,21 @@ remote computers over a network.
         LangPath /usr/share/locale
       </IfModule>
 
-      # Сообщение после успешного захода на сервер
       AccessGrantMsg "Welcome to Bolgarian Server"
-
-      # переключение поиска идентификаторов 
       <IfModule mod_ident.c>
         IdentLookups off
       </IfModule>
 
-      # Показывать содержимое каталога
       ListOptions "-l"
-
-      # регулярное выражение аргументов команды, которые нужно заблокировать 
       #DenyFilter \*.*/
-
-      # Паттерн для проверки комманд отправляемых от клиента-серверу
       #AllowFilter ^[-A-Za-z0-9_.(),/]*$
-
-      # Разрешить только "az 0-9" . - _ в именах файлов с символами верхнего регистра
       #PathAllowFilter ^[A-Za-z0-9._-]+$
 
-      # позволяем продолжать скачивания и закачки
       AllowStoreRestart on
       AllowRetrieveRestart on
-
-      # удаляем незавершенные закачки
       DeleteAbortedStores on
-
-      # SECURITY VIOLATION: Passive connection
       AllowForeignAddress on
-
-      # Маска изменяющая права доступа
+      
       <Directory /home/*>
         Umask 023
         AllowOverwrite on
@@ -238,26 +174,20 @@ remote computers over a network.
             AllowAll
           </Limit>
 
-          # Разрешение на смену прав файлам и создание каталогов
          <Limit ALL SITE_CHMOD>
            AllowAll
          </Limit>
 
-         # разрешим READ / WRITE
          <Limit READ WRITE>
            AllowAll
          </Limit>
        </Directory>
-
-       # использовать PAM-аутентификацию
+       
        AuthPAM off
-
-       # маскировка адресов с динамическими IP-адресами
        <IfModule mod_dynmasq.c>
          DynMasqRefresh 28800
        </IfModule>
 
-       # Логи
        TransferLog     /var/log/proftpd/xferlog.log
        ExtendedLog     /var/log/proftp/extended.log
        SystemLog       /var/log/proftpd/proftpd.log
@@ -270,7 +200,6 @@ remote computers over a network.
         Ratios off
        </IfModule>
 
-       # Защита от временной аттаки 
        <IfModule mod_delay.c>
           DelayEngine off
        </IfModule>
@@ -284,18 +213,13 @@ remote computers over a network.
           ControlsInterval 5
           ControlsSocket /var/run/proftpd/proftpd.sock
        </IfModule>
-
-       #
+       
        <IfModule mod_ctrls_admin.c>
           AdminControlsEngine off
        </IfModule>
 
-       # Это используется для соединений по протоколу FTPS
        Include /etc/proftpd/tls.conf
-
-       # Разделение директив VirtualHost/Виртуальный хост
        #Include /etc/proftpd/virtuals.conf
-
        Include /etc/proftpd/conf.d/
 
 --------------------------------------------
