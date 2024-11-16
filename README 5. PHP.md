@@ -5,17 +5,17 @@ PHP (recursive acronym of the PHP phrase: Hypertext Preprocessor)
 is a widespread open source general purpose programming language.
 
 ------------------------------------------
- 5.1 Шаг:
+ 5.1 Step:
  
-   > echo "deb https://packages.sury.org/php/ $(lsb_release -sc) main" | sudo tee /etc/apt/sources.list.d/php.list
-   > sudo apt-get update
-   > sudo rm -rf /etc/apt/trusted.gpg.d/php.gpg
-   > sudo apt-key del B188E2B695BD4743
-   > sudo wget -O /etc/apt/trusted.gpg.d/php.gpg https://packages.sury.org/php/apt.gpg
-   > sudo apt-get update
+   	> echo "deb https://packages.sury.org/php/ $(lsb_release -sc) main" | sudo tee /etc/apt/sources.list.d/php.list
+   	> sudo apt-get update
+   	> sudo rm -rf /etc/apt/trusted.gpg.d/php.gpg
+   	> sudo apt-key del B188E2B695BD4743
+   	> sudo wget -O /etc/apt/trusted.gpg.d/php.gpg https://packages.sury.org/php/apt.gpg
+   	> sudo apt-get update
 
  ------------------------------------------
-	если установлено вдруг php 8.0 то следующее:
+is install php 8.0 to next:
 	> sudo apt-get update
 	> sudo update-alternatives --set php /usr/bin/php7.4
 
