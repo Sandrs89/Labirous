@@ -59,7 +59,7 @@ Apache - this is a service running in the background. One of the web servers.
 
 	 > a2dismod 
 	 
-	 > a2ensite test.com (Только по необходимости "Подключаем виртуальный хост")
+	 > a2ensite test.com ("Connect virtual host")
   
 	 > sudo systemctl restart apache2
   
