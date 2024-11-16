@@ -85,15 +85,15 @@ remote computers over a network.
 
 --------------------------------------------
     
-    # > правим /etc/proftpd/proftpd.conf 
+    # > edit file /etc/proftpd/proftpd.conf 
       sudo nano /etc/proftpd/proftpd.conf 
 
       # /etc/proftpd/proftpd.conf -- This is a basic ProFTPD configuration file.
 
       Include /etc/proftpd/modules.conf
 
-      User usa-ftp
-      Group usa
+      User hostinger
+      Group blg
 
       DefaultRoot /home
       RootLogin off
@@ -224,7 +224,7 @@ remote computers over a network.
 
 --------------------------------------------
  
-   # правим /etc/proftpd/modules.conf 
+   # edit /etc/proftpd/modules.conf 
       sudo nano /etc/proftpd/modules.conf
 
         #
@@ -269,10 +269,10 @@ remote computers over a network.
         
 --------------------------------------------
  
-   # правим /etc/proftpd/tls.conf 
+   # edit /etc/proftpd/tls.conf 
 
-    # генерация ключа
-    > sudo openssl req -x509 -days 1461 -nodes -newkey rsa:2048 -keyout /etc/ssl/private/proftpd.key -out /etc/ssl/certs/proftpd.crt -subj "/C=EN/ST=USA/L=USA/O=Global Security/OU=IT Department/CN=cody-ai.org/CN=ftp"
+    # generate key
+    > sudo openssl req -x509 -days 1461 -nodes -newkey rsa:2048 -keyout /etc/ssl/private/proftpd.key -out /etc/ssl/certs/proftpd.crt -subj "/C=EN/ST=USA/L=USA/O=Global Security/OU=IT Department/CN=labirous.com/CN=ftp"
 
     > sudo chmod 0600 /etc/ssl/certs/proftpd.crt && sudo chmod 0640 /etc/ssl/private/proftpd.key
     > sudo nano /etc/proftpd/tls.conf     
@@ -283,30 +283,24 @@ remote computers over a network.
 
       <IfModule mod_tls.c>
       
-        # Включаем шифрование соединения
+        # on cryption
         TLSEngine                       on
       
-        # Логи шифрования
+        # log cryption
         TLSLog                          /var/log/proftpd/tls.log
       
-        # Протокол соединения
+        # connection protocol
         TLSProtocol                     SSLv23 TLSv1.2 TLSv1.3
       
-        # Путь к сертификатам
+        # certificate
         TLSRSACertificateFile           /etc/ssl/certs/proftpd.crt
         TLSRSACertificateKeyFile        /etc/ssl/private/proftpd.key
-
-        # Время жизни рукопожатия 
+        
         TLSTimeoutHandshake             30
-
-        # Опции:
         TLSOptions                      NoCertRequest EnableDiags NoSessionReuseRequired
       
-        # Проверьте клиентов, которые хотят использовать FTP через TLS. 
         TLSVerifyClient                 off
         TLSRequired                     on
-
-        # отключить повторную авторизацию TLS
         TLSRenegotiate                  required off
       </IfModule>
 
