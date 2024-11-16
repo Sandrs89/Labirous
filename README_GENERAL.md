@@ -1,12 +1,12 @@
 -------------------------------------------------------------------
-## Оглавление
+## General system
 
 	> sudo apt update
 	> sudo nano /etc/apt/sources.list
 
   # deb [Debian GNU/Linux 11.0.0 _Bullseye
 
-  # Пакеты для обновления системы Unix
+  # Package update system the Unix
 	deb http://deb.debian.org/debian/ bullseye main
 	deb-src http://deb.debian.org/debian/ bullseye main
 
@@ -22,7 +22,7 @@
 	deb http://security.debian.org/debian-security bullseye-security main
 	deb-src http://security.debian.org/debian-security bullseye-security main
 
-  # Пакеты для обновления PHP, MySQL
+  # Package update system the PHP, MySQL
 	#deb https://packages.sury.org/php/ bullseye main
 	
 	#deb http://repo.mysql.com/apt/debian/ buster mysql-apt-config
@@ -31,23 +31,23 @@
 	# deb http://repo.mysql.com/apt/debian/ buster mysql-tools-preview
 	#deb-src http://repo.mysql.com/apt/debian/ buster mysql-5.7	
 
-	Получить ключ авторизации:
+	Get key auth package:
 	> sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-keys B7B3B788A8D3785C
 
-  # Пакеты для обновления Certbot
+  # Package update the Certbot
 	#deb http://ppa.launchpad.net/certbot/certbot/ubuntu lunar main
 	# deb-src http://ppa.launchpad.net/certbot/certbot/ubuntu lunar main
 	
-	Прочее: Если нужно добавить - удалить из репозитория:
+	Other: If add - dell from repository:
 	> sudo apt-add-repository -r ppa:certbot/certbot
 	> sudo add-apt-repository --remove ppa:certbot/certbot
 	
-	Просмотреть репозитории:
+	View repository:
 	> lsb_release -a	
 	
-	Почистить удалить кэш установок:
+	Clear or delete cache install:
 	> sudo ls -ls /etc/apt/sources.list.d/
 	> sudo rm -rf /etc/apt/sources.list.d/*
 	
-	Обновить:
+	Update:
 	> sudo apt update
