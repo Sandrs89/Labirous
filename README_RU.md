@@ -1,7 +1,7 @@
-## Мануал по настройке VDS сервера ##
+## Manual to setting the VDS server ##
 
 -------------------------------------------------------------------
-## Оглавление (Source List)
+## General (Source List)
 
 0. UFW
 1. SSH (SFTP)
