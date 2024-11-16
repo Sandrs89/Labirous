@@ -8,11 +8,6 @@ computer to another over a network.
       > sudo systemctl enable sshd
       > ssh username@ip -p port
    ---------------------------------------
-      > sudo groupadd usa
-      > sudo adduser usa-sftp
-      > sudo usermod -G usa usa-sftp
-      > sudo chown usa-sftp:usa /
-      > usermod -aG sudo blg-sftp
    
       > edit /etc/ssh/sshd_config
         sudo nano /etc/ssh/sshd_config
