@@ -22,7 +22,8 @@ F - 5 README 5.NGINX.md
 G - 6 README 6. PHP.md
 
 
-6. Memcached
+H - 7 README 7. MEMCACHED.md
+
 7. Mysql
 
 8. Cerbot
