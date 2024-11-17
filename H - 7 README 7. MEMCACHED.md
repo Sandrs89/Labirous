@@ -1,12 +1,12 @@
 
 ## ################################################################
-6. Memcached
+7. Memcached
    
         Memcached – It is a convenient high-performance in-memory data storage. 
         A thoughtful, scalable, open source solution provides a response time of 
         fractions of a millisecond, which allows use it as a cache or session storage.
 
-  6.1 Step:
+  7.1 Step:
   
     > sudo apt install memcached libmemcached-tools
     > sudo apt-cache policy memcached
