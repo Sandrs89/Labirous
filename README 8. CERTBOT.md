@@ -26,11 +26,11 @@ application that uses a certificate.
     
     
     # for Lets` encrypt
-    > sudo certbot certonly --agree-tos --email gromov.aleksandr@list.ru 
+    > sudo certbot certonly --agree-tos --email gromov.sandrs@gmail.com 
     --webroot -w /home/hostinger/bin-tmp -d labirous.com -d www.labirous.com
     
     # for acme.ssl.com
-    sudo certbot --nginx --agree-tos --email gromov.aleksandr@list.ru 
+    sudo certbot --nginx --agree-tos --email gromov.sandrs@gmail.com 
     --no-eff-email --config-dir /home/hostinger/bin-tmp --eab-kid b94a14e1d78d 
     --eab-hmac-key XhqV7g5wFyKxYrn9MpNOrFTTvAAonv6JoTkpBr_PiOg 
     --server https://acme.ssl.com/sslcom-dv-rsa -d labirous.com -d www.labirous.com
