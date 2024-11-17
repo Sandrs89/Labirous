@@ -1,10 +1,10 @@
 
 ## ################################################################
-7. Mysql
+8. Mysql
 MySQL — a free relational database management system.
 -----------------------------------------------------
 
-  7.1 Step:
+  8.1 Step:
   
     > sudo apt update
     > wget https://dev.mysql.com/get/mysql-apt-config_0.8.16-1_all.deb
