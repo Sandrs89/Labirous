@@ -59,13 +59,13 @@ MySQL — a free relational database management system.
 		GRANT ALL PRIVILEGES ON *.* TO 'dbuser'@'localhost' 
 		IDENTIFIED BY 'my12345' WITH GRANT OPTION;
 		quit;
-
-   Если есть firewall UFW:
+----------------------------------------------------------
+   firewall UFW:
+   
      > sudo ufw allow 3306/tcp
 
 
 7.2 Step:
----------- ----------- PHP MY ADMIN --------------- --------------------
 PHPMYADMIN представляет собой веб-приложение для управления базами 
 данных MySQL и MariaDB с использованием графического пользовательского 
 интерфейса (GUI).
