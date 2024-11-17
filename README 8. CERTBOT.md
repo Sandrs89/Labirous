@@ -39,10 +39,10 @@ application that uses a certificate.
     > a2enconf certbot
     > sudo service apache2 reload
     
-     Let’s Encrypt 90 day.
-    > sudo systemctl status certbot.timer
-    
-    > sudo certbot renew --dry-run --cert-name bank.pip-start.ru --authenticator webroot --webroot-path /home/hostinger/bin-tmp
+  Let’s Encrypt 90 day.
+  
+    > sudo systemctl status certbot.timer  
+    > sudo certbot renew --dry-run --cert-name labirous.com --authenticator webroot --webroot-path /home/hostinger/bin-tmp
 
   ---------------------------------------------
   > certbot certificates
