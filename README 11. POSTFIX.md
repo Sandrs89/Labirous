@@ -135,8 +135,9 @@ He will be responsible for sending and receiving mail via SMTP.
 		  ON DELETE CASCADE
 		) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 		
-   Вставляем >
-		INSERT INTO virtual_domains (`id`, `name`) VALUES (1, 'gromo109834.localdomain');
+   Insert >
+		
+  		INSERT INTO virtual_domains (`id`, `name`) VALUES (1, 'gromo109834.localdomain');
 
 		INSERT INTO virtual_users (`id`, `domain_id`, `email`, `password`)
 		  VALUES (1, 1, 'admin@gromo109834.localdomain', ENCRYPT('s3cr3t', CONCAT('$6$', SUBSTRING(SHA(RAND()), -16))));
@@ -145,12 +146,12 @@ He will be responsible for sending and receiving mail via SMTP.
 		  (`id`, `domain_id`, `source`, `destination`) VALUES (1, 1, 'admin@gromo109834.localdomain', 'root');
     
     
-    12.1.5. --------- POSTFIX  -----------
+12.1.5. POSTFIX
     
-    > Правим nano /etc/postfix/main.cf:
+    > Edit nano /etc/postfix/main.cf:
     > chmod -Rf 755 /etc/postfix
     
-    # увеличиваем максимальный размер письма до 1 Мб
+    # max size mail 1 Мб
     message_size_limit = 1000000
     
 	# настройки БД
