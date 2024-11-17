@@ -1,6 +1,6 @@
 
 ## ################################################################
-11. Postfix
+12. Postfix
     
 Postfix - It is a free, open source mail Transfer Agent
 (MTA) that routes and delivers email. 
@@ -8,9 +8,9 @@ He will be responsible for sending and receiving mail via SMTP.
 
 -------------------------------------------------------------------
 
-  11.1 Step:
+  12.1 Step:
     
-11.1.1.  Install and setting Postfix:
+12.1.1.  Install and setting Postfix:
 
     > sudo apt install postfix or
     > sudo DEBIAN_PRIORITY=low apt install postfix
