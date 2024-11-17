@@ -62,7 +62,7 @@ MySQL — a free relational database management system.
      > sudo ufw allow 3306/tcp
 
 
-7.2 Step:
+8.2 Step:
 
 PHPMYADMIN It is a web application for managing MySQL
 and MariaDB databases using a graphical user
