@@ -16,13 +16,11 @@
 6. Memcached
 7. Mysql
 
-8. phpmyadmin
+8. Cerbot
+9. Curl
+10. Cron
 
-9. Cerbot
-10. Curl
-11. Cron
-
-12. Postfix
-13. JQ
-14. OpenSSL
-15. VPN
+11. Postfix
+12. JQ
+13. OpenSSL
+14. VPN
