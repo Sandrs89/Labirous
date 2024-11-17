@@ -64,9 +64,9 @@ MySQL — a free relational database management system.
 
 7.2 Step:
 
-PHPMYADMIN представляет собой веб-приложение для управления базами 
-данных MySQL и MariaDB с использованием графического пользовательского 
-интерфейса (GUI).
+PHPMYADMIN It is a web application for managing MySQL
+and MariaDB databases using a graphical user
+interface (GUI).
 
 	phpmyadmin
 	> htpasswd -c /home/hostinger/phpmyadmin.htpasswd secureuser
