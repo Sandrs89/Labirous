@@ -2,8 +2,6 @@
 
 -------------------------------------------------------------------
 ## General (Source List)
-
-   README OTHER
    
 A - 0 README-GENERAL.md
 
