@@ -1,12 +1,12 @@
 
 ## ################################################################
-5. PHP
+6. PHP
    
 		PHP (recursive acronym of the PHP phrase: Hypertext Preprocessor)
 		is a widespread open source general purpose programming language.
 
 ------------------------------------------
- 5.1 Step:
+ 6.1 Step:
  
    	> echo "deb https://packages.sury.org/php/ $(lsb_release -sc) main" | sudo tee /etc/apt/sources.list.d/php.list
    	> sudo apt-get update
