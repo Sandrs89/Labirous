@@ -19,7 +19,8 @@ E - 4 README 4. APACHE.md
 
 F - 5 README 5.NGINX.md
 
-5. PHP
+G - 6 README 6. PHP.md
+
 
 6. Memcached
 7. Mysql
