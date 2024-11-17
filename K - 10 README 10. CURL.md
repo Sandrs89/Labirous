@@ -1,11 +1,11 @@
 
 ## ################################################################
-9. Curl
+10. Curl
 Curl - it is a command-line utility that allows you to perform 
 HTTP requests with various parameters and methods.
 
 -------------------------------------------------------------------
-  9.1 Step:
+  10.1 Step:
   
     > sudo apt install curl
     > sudo apt install python3-pycurl
