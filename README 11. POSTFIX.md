@@ -1,15 +1,16 @@
 
 ## ################################################################
-12. Postfix
+11. Postfix
+    
 Postfix - It is a free, open source mail Transfer Agent
 (MTA) that routes and delivers email. 
 He will be responsible for sending and receiving mail via SMTP.
 
 -------------------------------------------------------------------
 
-  12.1 Step:
+  11.1 Step:
     
-    12.1.1.  ----------- Уставнока и настойка Postfix:  -----------
+    11.1.1.  ----------- Install and setting Postfix:  -----------
     > sudo apt install postfix или
     > sudo DEBIAN_PRIORITY=low apt install postfix
     
@@ -209,88 +210,100 @@ He will be responsible for sending and receiving mail via SMTP.
     > sudo nano /etc/aliases
    
     
-    . --------- Начинаем диагностику --------- 
-    > 1. ps -ax | grep master  
-    (/usr/lib/postfix/sbin/master -w)
+. --------- Начинаем диагностику --------- 
+> 1. ps -ax | grep master  
+
+	(/usr/lib/postfix/sbin/master -w)
     
-    > 2. service postfix status
-    > 3. netstat -na  | grep LISTEN | grep  25
-    (tcp        0      0 0.0.0.0:25              0.0.0.0:*               LISTEN)
+> 2. service postfix status
+> 3. netstat -na  | grep LISTEN | grep  25
+
+	(tcp        0      0 0.0.0.0:25              0.0.0.0:*               LISTEN)
     
-    > 4. postfix check 
+> 4. postfix check
+
 	> /usr/sbin/postfix -v
 	> postconf | grep version
 	> postconf –m
     (Ошибок не должно быть)
     
-    > 5. postfix stop
-    > 6. postfix start
+> 5. postfix stop
+> 6. postfix start
     
-    7. Проверяем, что он видит домены, пользователей и алиасы:
-    > sudo postmap -q admin@gromo109834.localdomain mysql:/etc/postfix/mysql-users.cf
-    > sudo postmap -q gromo109834.localdomain mysql:/etc/postfix/mysql-domains.cf
-    > sudo postmap -q postmaster@gromo109834.localdomain mysql:/etc/postfix/mysql-aliases.cf admin@gromo109834.localdomain
+7. Проверяем, что он видит домены, пользователей и алиасы:
+   
+    	> sudo postmap -q admin@gromo109834.localdomain mysql:/etc/postfix/mysql-users.cf
+    	> sudo postmap -q gromo109834.localdomain mysql:/etc/postfix/mysql-domains.cf
+    	> sudo postmap -q postmaster@gromo109834.localdomain mysql:/etc/postfix/mysql-aliases.cf admin@gromo109834.localdomain
     
-	8. Проверим порты
-	 > sudo apt install nmap
-     > nmap -v -p25,110,143,465,587,993,995 127.0.0.1
-     > netstat -lnpvut (посмотрим на текущие соединения)
+9. Проверим порты
+   
+		> sudo apt install nmap
+     		> nmap -v -p25,110,143,465,587,993,995 127.0.0.1
+     		> netstat -lnpvut (посмотрим на текущие соединения)
      
      
-    9. Тестирование отправки почты
-    > telnet localhost 25			              (220)
-    > HELO localhost.localdomain	              (250) 
-    > MAIL FROM:<>                                (250 2.1.0 Ok)
-    > RCPT TO:<admin@gromo109834.localdomain>     (250 2.1.5 Ok)
-    > DATA 										  (354 End data with <CR><LF>.<CR><LF>)
-    > quit
+10. Тестирование отправки почты
+
+		> telnet localhost 25			      (220)
+    		> HELO localhost.localdomain	              (250) 
+    		> MAIL FROM:<>                                (250 2.1.0 Ok)
+    		> RCPT TO:<admin@gromo109834.localdomain>     (250 2.1.5 Ok)
+    		> DATA 					      (354 End data with <CR><LF>.<CR><LF>)
+    		> quit
     
-    > telnet localhost 25
-    > mail from: admingromo109834.localdomain
-    > rcpt to: postmaster@gromo109834.localdomain
-    > DATA
-		From: <admingromo109834.localdomain>
-		To: <postmaster@gromo109834.localdomain>
-		Subject: root@gromo109834.localdomain
-		Hello friend mails
-    Чтобы завершить подключение по Telnet, введите “.” и нажмите ENTER.
-    > 250 2.0.0 Ok: queued as DE3A..28..0
-    > quit
+    		> telnet localhost 25
+    		> mail from: admingromo109834.localdomain
+    		> rcpt to: postmaster@gromo109834.localdomain
+    		> DATA
+			From: <admingromo109834.localdomain>
+			To: <postmaster@gromo109834.localdomain>
+			Subject: root@gromo109834.localdomain
+			Hello friend mails
+   
+    	Чтобы завершить подключение по Telnet, введите “.” и нажмите ENTER.
+    	> 250 2.0.0 Ok: queued as DE3A..28..0
+    	> quit
     
     
 	Справка
-	MAIL FROM: <адресотправителя>
-	RCPT TO: <комуписьмо>
-	DATA    
+
+		MAIL FROM: <адресотправителя>
+		RCPT TO: <комуписьмо>
+		DATA    
     
     
-    10. Проверка сети
-     > ps -ef | grep mail
-     > dig pip-start.ru mx    
+11. Проверка сети
+    
+     	> ps -ef | grep mail
+     	> dig pip-start.ru mx    
     
     
-    11. ---------------------------------- Тест ящика Postfix (mail)
-    > echo "Test mail" | mail -s "Test mail" admin@gromo109834.localdomain
-    > sudo mail -f /home/vmail/Mailbox
+12. ---------------------------------- Тест ящика Postfix (mail)
+    
+    	> echo "Test mail" | mail -s "Test mail" admin@gromo109834.localdomain
+    	> sudo mail -f /home/vmail/Mailbox
 
 
-    12. ---------------------------------- Тест ящика Postfix (s-nail)
-    > sudo apt install s-nail
-    > sudo nano /etc/s-nail.rc
+13. ---------------------------------- Тест ящика Postfix (s-nail)
     
-    # разрешает клиенту открываться даже при пустом почтовом ящике
-	set emptystart
+		> sudo apt install s-nail
+    		> sudo nano /etc/s-nail.rc
+    
+    		# разрешает клиенту открываться даже при пустом почтовом ящике
+		set emptystart
 	
-	# указывает название каталога с структурой почтовых папок
-	set folder=/home/vmail/Mailbox
+		# указывает название каталога с структурой почтовых папок
+		set folder=/home/vmail/Mailbox
 	
-	# создает файл sent для хранения отправленной почты
-	set record=+sent    
+		# создает файл sent для хранения отправленной почты
+		set record=+sent    
     
-    > echo 'Hello' | s-nail -s 'Hello' -Snorecord admin@gromo109834.localdomain
-    > s-nail 
+   		 > echo 'Hello' | s-nail -s 'Hello' -Snorecord admin@gromo109834.localdomain
+		> s-nail 
     
     
-    13. ----------------------------------  Отладка
-    tail -f /var/log/mail.log    
-    tail -f /var/log/mail.err 
+14. ----------------------------------  Отладка
+    
+    	tail -f /var/log/mail.log    
+    	tail -f /var/log/mail.err 
