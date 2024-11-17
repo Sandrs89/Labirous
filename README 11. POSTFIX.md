@@ -10,7 +10,8 @@ He will be responsible for sending and receiving mail via SMTP.
 
   11.1 Step:
     
-    11.1.1.  ----------- Install and setting Postfix:  -----------
+11.1.1.  Install and setting Postfix:
+
     > sudo apt install postfix or
     > sudo DEBIAN_PRIORITY=low apt install postfix
     
@@ -54,7 +55,7 @@ He will be responsible for sending and receiving mail via SMTP.
     > sudo systemctl restart postfix
     
     
-12.1.2. ---------  Install patch  -----------
+12.1.2. Install patch
     
     > sudo postconf -e 'home_mailbox= Mailbox/'
     > sudo postconf -e 'virtual_alias_maps= hash:/home/vmail/virtual'
@@ -72,7 +73,7 @@ He will be responsible for sending and receiving mail via SMTP.
 	> cat /etc/mailname
 
 
-12.1.3. --------- System setting -----------
+12.1.3. System setting
 
     > hostname - узнаем свой хост и записываем его куда-нибудь на бумажку.
     gromo109834
@@ -85,28 +86,28 @@ He will be responsible for sending and receiving mail via SMTP.
     > cat /etc/hosts
 	
 
-12.1.4. --------- Restart  -----------
+12.1.4. Restart
 
     > sudo postfix reload
     > sudo systemctl restart postfix
     > sudo systemctl status postfix
     
-    Если есть firewall UFW:
+     firewall UFW:
      > sudo ufw allow Postfix
      > sudo ufw allow 25/tcp    
     
     
-    12.1.4. --------- БД  -----------
-    Создадим БД:
+ 12.1.4. Database
+    Create DB:
     
     > mysql --user root --password
-	> CREATE DATABASE mail;
+    > CREATE DATABASE mail;
     > CREATE USER 'mail'@'localhost' IDENTIFIED BY 'pa55w0rd';
     > GRANT ALL ON mail.* TO 'mail'@'localhost';
     > exit
     > mysql mail --user mail --password pa55w0rd
     
-    Созадем > 
+    Create > 
 		CREATE TABLE `virtual_domains` (
 		`id`  INT NOT NULL AUTO_INCREMENT,
 		`name` VARCHAR(50) NOT NULL,
