@@ -154,7 +154,7 @@ He will be responsible for sending and receiving mail via SMTP.
     # max size mail 1 Мб
     message_size_limit = 1000000
     
-	# настройки БД
+	# Setting DB
 	virtual_mailbox_domains = mysql:/etc/postfix/mysql-domains.cf
 	virtual_mailbox_maps = mysql:/etc/postfix/mysql-users.cf
 	virtual_alias_maps = mysql:/etc/postfix/mysql-aliases.cf
