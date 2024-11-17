@@ -1,10 +1,10 @@
 ## ################################################################
-# 2. FTP
+# 3. FTP
 File Transfer Protocol, FTP – The file transfer protocol and, as
 the full name implies, is designed to transfer files between
 remote computers over a network.
 
- # 2.1 Step:
+ # 3.1 Step:
    > sudo adduser hostinger
 
    > sudo apt-get install proftpd
