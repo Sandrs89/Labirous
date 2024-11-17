@@ -51,47 +51,42 @@ He will be responsible for sending and receiving mail via SMTP.
        
     > sudo systemctl enable postfix
     > sudo systemctl start postfix       
-    
     > sudo systemctl restart postfix
     
     
-    12.1.2. ---------  Установка путей  -----------
+12.1.2. ---------  Install patch  -----------
     
-    Настроим Postfix на использование структуры хранения почты
     > sudo postconf -e 'home_mailbox= Mailbox/'
-    
-    Зададим расположение файла алиасов, который связывает псевдонимы почтовых ящиков с системными учетными записями
     > sudo postconf -e 'virtual_alias_maps= hash:/home/vmail/virtual'
-    
-	Настроим сопоставление алиасов и учетных записей в файле /home/vmail/virtual
+
     > sudo nano /home/vmail/virtual
-    
 	   postmaster@gromo109834.localdomain root
 	   admin@gromo109834.localdomain root
 
 	> sudo postmap /home/vmail/virtual
 
-	Правим:
+    Edit:
 	> sudo nano /etc/mailname 
 	  (gromo109834.localdomain)
 	  
 	> cat /etc/mailname
 
 
-	12.1.3. --------- Системный настройки -----------
+12.1.3. --------- System setting -----------
+
     > hostname - узнаем свой хост и записываем его куда-нибудь на бумажку.
     gromo109834
     
-    Добавляем строчку в /etc.hosts
     > sudo nano /etc/hosts
     
     # mail
     127.0.0.1 gromo109834.localdomain mail
     
-	> cat /etc/hosts
+    > cat /etc/hosts
 	
 
-	12.1.4. --------- Перезапуск  -----------
+12.1.4. --------- Restart  -----------
+
     > sudo postfix reload
     > sudo systemctl restart postfix
     > sudo systemctl status postfix
