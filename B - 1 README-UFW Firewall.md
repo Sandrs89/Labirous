@@ -1,9 +1,9 @@
 ## ################################################################
-# 0. UFW Firewall
+# 1. UFW Firewall
 UFW (Uncomplicated Firewall or "simple firewall") is an iptables interface 
 designed to simplify the firewall configuration process.
 
- ## 0.1 Step:
+ ## 1.1 Step:
     > sudo apt-get install ufw
     > sudo ufw enable
     > sudo ufw status
@@ -14,7 +14,7 @@ designed to simplify the firewall configuration process.
     > netstat
     > netstat -lnpvut (посмотрим на текущие соединения)
     
- ## 0.2 Control:
+ ## 1.2 Control:
     > sudo ufw allow 20/tcp
     > sudo ufw deny 20/tcp
    
@@ -24,7 +24,7 @@ designed to simplify the firewall configuration process.
     > sudo ufw status numbered
     > sudo ufw delete
 
-  ## 0.3 Open port  
+  ## 1.3 Open port  
     > sudo ufw allow 20/tcp
     > sudo ufw allow 21/tcp
     > sudo ufw allow 40000:65000/tcp
