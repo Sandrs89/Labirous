@@ -7,29 +7,23 @@ Apache - this is a service running in the background. One of the web servers.
    3.1 Step:
 
 	 > sudo apt install apache2
-  
 	 > sudo systemctl enable apache2
-  
 	 > sudo systemctl start apache2
   
 	 
 	 > edit /etc/apache2/apache2.conf
-  
 	   nano /etc/apache2/apache2.conf
     	
 	   
 	 > edit /etc/apache2/ports.conf
-  
 	   nano /etc/apache2/ports.conf
     	
 	   	 
 	 > /etc/apache2/sites-available/000-default.conf
-  
 	   nano /etc/apache2/sites-available/000-default.conf
     	
 	   
 	 > /etc/apache2/sites-available/default-ssl.conf
-  
 	   nano /etc/apache2/sites-available/default-ssl.conf   
 
 ---------------------------------------------------------------------------------
