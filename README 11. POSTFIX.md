@@ -160,9 +160,9 @@ He will be responsible for sending and receiving mail via SMTP.
 	virtual_alias_maps = mysql:/etc/postfix/mysql-aliases.cf
 	
 	
-    Создадим подключение к БД:
+    Create connect to BD:
     ---------------
-	> Создаем /etc/postfix/mysql-domains.cf:
+	> Create /etc/postfix/mysql-domains.cf:
 	hosts = localhost
 	user = mail
 	password = pa55w0rd
@@ -174,7 +174,7 @@ He will be responsible for sending and receiving mail via SMTP.
     ---------------
 
     ---------------
-	> Создаем /etc/postfix/mysql-users.cf:
+	> Create /etc/postfix/mysql-users.cf:
 	hosts = 127.0.0.1
 	user = mail
 	password = pa55w0rd
@@ -186,7 +186,7 @@ He will be responsible for sending and receiving mail via SMTP.
     ---------------
     
     ---------------
-	> Создаем /etc/postfix/mysql-aliases.cf:
+	> Create /etc/postfix/mysql-aliases.cf:
 	hosts = 127.0.0.1
 	user = mail
 	password = pa55w0rd
@@ -207,9 +207,10 @@ He will be responsible for sending and receiving mail via SMTP.
     > sudo nano /etc/aliases
    
     
-. --------- Начинаем диагностику --------- 
-> 1. ps -ax | grep master  
+Start diagnostics
 
+> 1. ps -ax | grep master
+ 
 	(/usr/lib/postfix/sbin/master -w)
     
 > 2. service postfix status
