@@ -38,15 +38,12 @@ MySQL — a free relational database management system.
       >> 4. y
       >> 5. y
       
-      >> Remove anonymous users - удалить аноноимных пользователей
-      >> Disallow root login remotely - отключить удалённые подключения 
-      для root пользователя, это касается только удалённых подключений, 
-      подключения с localhost удалёнными не считаются.
+      >> Remove anonymous users - delete anomoys user
+      >> Disallow root login remotely - off remote control
       
-      >> Remove test database and access to it - удалить тестовую базу 
-      данных.
+      >> Remove test database and access to it - уdelete test DB
       
-      >> Reload privilege tables now - перезагрузить таблицу привелений.
+      >> Reload privilege tables now - restart table privelegy
 
 	> sudo systemctl restart mysql
 	> systemctl status mysql
@@ -66,6 +63,7 @@ MySQL — a free relational database management system.
 
 
 7.2 Step:
+
 PHPMYADMIN представляет собой веб-приложение для управления базами 
 данных MySQL и MariaDB с использованием графического пользовательского 
 интерфейса (GUI).
