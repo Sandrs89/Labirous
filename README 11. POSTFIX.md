@@ -279,13 +279,13 @@ He will be responsible for sending and receiving mail via SMTP.
      	> dig pip-start.ru mx    
     
     
-12. ---------------------------------- Тест ящика Postfix (mail)
+12. Тест ящика Postfix (mail)
     
     	> echo "Test mail" | mail -s "Test mail" admin@gromo109834.localdomain
     	> sudo mail -f /home/vmail/Mailbox
 
 
-13. ---------------------------------- Тест ящика Postfix (s-nail)
+13. Тест ящика Postfix (s-nail)
     
 		> sudo apt install s-nail
     		> sudo nano /etc/s-nail.rc
@@ -303,7 +303,7 @@ He will be responsible for sending and receiving mail via SMTP.
 		> s-nail 
     
     
-14. ----------------------------------  Отладка
+14. Отладка
     
     	tail -f /var/log/mail.log    
     	tail -f /var/log/mail.err 
