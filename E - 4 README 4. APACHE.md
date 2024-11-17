@@ -1,10 +1,10 @@
 
 ## ################################################################
-3. Apache
+4. Apache
 Apache - this is a service running in the background. One of the web servers. 
 
 ---------------------------------------------------------------------------------
-   3.1 Step:
+   4.1 Step:
 
 	 > sudo apt install apache2
 	 > sudo systemctl enable apache2
