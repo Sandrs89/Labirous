@@ -11,7 +11,7 @@ He will be responsible for sending and receiving mail via SMTP.
   11.1 Step:
     
     11.1.1.  ----------- Install and setting Postfix:  -----------
-    > sudo apt install postfix или
+    > sudo apt install postfix or
     > sudo DEBIAN_PRIORITY=low apt install postfix
     
     > sudo apt install postfix mailutils
@@ -286,7 +286,7 @@ He will be responsible for sending and receiving mail via SMTP.
 
 
 13. Тест ящика Postfix (s-nail)
-    
+
 		> sudo apt install s-nail
     		> sudo nano /etc/s-nail.rc
     
@@ -303,7 +303,7 @@ He will be responsible for sending and receiving mail via SMTP.
 		> s-nail 
     
     
-14. Отладка
+14. Debug
     
     	tail -f /var/log/mail.log    
     	tail -f /var/log/mail.err 
