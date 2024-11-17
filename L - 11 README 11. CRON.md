@@ -1,12 +1,12 @@
 
 ## ################################################################
-10. Cron
+11. Cron
 cron — classic daemon (computer program in class systems 
 UNIX), which is used for periodic execution of tasks at
 a certain time.
 
 -------------------------------------------------------------------
-  10.1 Step:
+  11.1 Step:
   
      > sudo apt-get install cron
      > sudo service cron reload
