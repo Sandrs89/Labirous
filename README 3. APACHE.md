@@ -28,23 +28,16 @@ Apache - this is a service running in the background. One of the web servers.
 
 ---------------------------------------------------------------------------------
 	 > apachectl configtest
-  
 	 > sudo apachectl -t
-  
 	 > sudo systemctl reload apache2
-  
 	 > sudo systemctl restart apache2
-  
 	 > ls /etc/apache2/mods-enabled
   
 ---------------------------------------------------------------------------------
 
    	 > a2enmod rewrite
-   
 	 > a2enmod http2
-   
 	 > a2enmod headers
-   
 	 > a2enmod expires
   
 
@@ -52,9 +45,7 @@ Apache - this is a service running in the background. One of the web servers.
    Off module Apache:
 
 	 > a2dismod 
-	 
 	 > a2ensite test.com ("Connect virtual host")
-  
 	 > sudo systemctl restart apache2
   
 
