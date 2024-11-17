@@ -11,7 +11,7 @@ application that uses a certificate.
 
 -------------------------------------------------------------------
 
-  9.1 Шаг:
+  9.1 Step:
   
     > sudo apt-get install software-properties-common
     > sudo add-apt-repository ppa:certbot/certbot          ( if errors!)
@@ -46,8 +46,10 @@ application that uses a certificate.
 
   ---------------------------------------------
   > certbot certificates
-	  > sudo ls -lR /etc/letsencrypt/archive/     
+
+    > sudo ls -lR /etc/letsencrypt/archive/     
 
   ---------------------------------------------
   update ssl:
+  
     > sudo certbot renew --dry-run
