@@ -1,9 +1,9 @@
 ## ################################################################
-# 1. SSH (SFTP)
+# 2. SSH (SFTP)
 SSH or Secure Shell - This is a protocol for secure access from one
 computer to another over a network.
 
- ## 1.1 Step:
+ ## 2.1 Step:
       > sudo apt install openssh-server
       > sudo systemctl enable sshd
       > ssh username@ip -p port
